@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+@import "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap";
+
+html {
+  font-family: Roboto, sans-serif;
+}
+
+._container {
+  max-width: 1180px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (max-width: 576px) {
+  ._container {
+    max-width: 540px;
+  }
+}
+
+@media (max-width: 768px) {
+  ._container {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 992px) {
+  ._container {
+    max-width: 750px;
+  }
+}
+
+@media (max-width: 1200px) {
+  ._container {
+    max-width: 970px;
+  }
+}

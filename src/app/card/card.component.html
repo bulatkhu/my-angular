@@ -1,0 +1,67 @@
+<div class="card">
+  <h2
+    [ngStyle]="{color:card.title.length < 5 ? 'black' : 'red'}"
+  ><span>{{ index }})</span> {{card.title}}</h2>
+<!--  <p-->
+<!--    class="text"-->
+<!--    [ngClass]="{-->
+<!--      blue: textColor === 'blue',-->
+<!--      green: textColor === 'green',-->
+<!--      red: textColor === 'red'-->
+<!--    }"-->
+<!--  >{{text}}</p>-->
+
+  <p
+    class="text"
+    [class.blue]="textColor === 'blue'"
+    [class.red]="textColor === 'red'"
+    [class.green]="textColor === 'green'"
+  >{{ card.text }}</p>
+
+  <p>{{getInfo()}}</p>
+
+  <div>
+    <div class="card__img">
+      <img [src]="card.images[currentImg]" alt=" {{card.title}}">
+    </div>
+    <br>
+    <p>{{disabled}}</p>
+
+    <div class="card__buttons">
+      <button (click)="textColor = 'blue'">Set blue</button>
+      <button (click)="textColor = 'green'">Set green</button>
+      <button (click)="textColor = 'red'">Set red</button>
+    </div>
+
+    <div class="card__buttons">
+      <button (click)="card.title = 'was'">Change title</button>
+
+      <button
+        (click)="imagesHandler('prev')"
+      >prev img</button>
+
+      <span style="padding: 10px; display: inline-block">{{currentImg + 1}}</span>
+
+      <button
+        (click)="imagesHandler('next')"
+      >next img</button>
+    </div>
+
+    <div><strong>{{cardDate | date:'longTime'}}</strong></div>
+    <div><strong>{{cardDate | date:'hh:mm:yy'}}</strong></div>
+    <div><strong>{{cardDate | date:'hh-mm-yy'}}</strong></div>
+
+    <div>
+      <label>
+        <input #myInput value="{{card.title}}" type="text" (input)="inputHandler(myInput.value)">
+      </label>
+
+<!--      <label>-->
+<!--        <input-->
+<!--          type="text" [(ngModel)]="title"-->
+<!--          (ngModelChange)="changeHandler($event)"-->
+<!--        >-->
+<!--      </label>-->
+    </div>
+  </div>
+</div>
